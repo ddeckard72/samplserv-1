@@ -10,10 +10,33 @@ module Samplserv
       "Welcome to Samplserv!"
     end
 
+    post "/beat" do
+      spawn("afplay \"samples/beat.mp3\"")
+      "The beat starts"
+    end
+
     post "/better" do
       version = params["v"] ? params["v"].to_i : 1
-      # binding.pry
       spawn("afplay \"samples/Better#{version}.mp3\"")
+      "Better"
+    end
+
+    post "/harder" do
+      version = params["v"] ? params["v"].to_i : 1
+      spawn("afplay \"samples/Harder#{version}.mp3\"")
+      "Harder"
+    end
+
+    post "/faster" do
+      version = params["v"] ? params["v"].to_i : 1
+      spawn("afplay \"samples/Faster#{version}.mp3\"")
+      "Faster"
+    end
+
+    post "/stronger" do
+      version = params["v"] ? params["v"].to_i : 1
+      spawn("afplay \"samples/Stronger#{version}.mp3\"")
+      "Stronger"
     end
 
     get "/stop" do
